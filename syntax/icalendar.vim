@@ -46,6 +46,13 @@ IcalHiLink	icalParameter	Comment
 IcalHiLink	icalSetValue	Special
 IcalHiLink	icalCustom	Error
 
+" to enable syntax folding, add to your vimrc:
+" augroup iCalendarFolding
+"   autocmd!
+"   autocmd FileType icalendar setlocal foldmethod=syntax
+" augroup END
+syntax region icalObject start="^BEGIN:\z([A-Z]\+\)$" end="^END:\z1$" fold transparent keepend extend
+
 delcommand IcalHiLink
   
 let b:current_syntax = "icalendar"
